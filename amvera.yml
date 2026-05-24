@@ -1,12 +1,19 @@
+---
 meta:
-  version: 20
-
+  environment: nodejs
+  toolchain:
+    name: npm
+    version: 20
 build:
+  skip: false
   additionalCommands: npm run build
-
-artifacts:
-  - key: '*'
-    value: '/'
-
+  artifacts:
+    '*': /
 run:
-  scriptName: start
+  persistenceMount: /data
+  scriptName: stsrt
+  scriptArguments: null
+  nodeArguments: null
+  command: npm run start
+  containerPort: 80
+  servicePort: 80
