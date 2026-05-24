@@ -1,19 +1,18 @@
----
 meta:
-  environment: nodejs
-  toolchain:
-    name: npm
-    version: 20
+  environment: node
+  version: 20
+
 build:
-  skip: false
-  additionalCommands: npm run build
-  artifacts:
-    '*': /
+  commands:
+    - cd backend
+    - npm install
+    - npm run build
+
 run:
-  persistenceMount: /data
-  scriptName: stsrt
-  scriptArguments: null
-  nodeArguments: null
-  command: npm run start
-  containerPort: 80
-  servicePort: 80
+  command: cd backend && npm start
+  port: 5000
+
+tasks:
+  - name: db-migrate
+    command: cd backend && npm run db:init
+    runOn: deploy
