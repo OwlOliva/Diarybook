@@ -6,11 +6,7 @@ meta:
     version: 20
 build:
   skip: false
-  additionalCommands:   
-    - cd backend
-    - npm install
-    - npm install -g typescript
-    - tscnpm run build
+  additionalCommands: npm run build
   artifacts:
     '*': /
 run:
