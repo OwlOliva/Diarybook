@@ -1,0 +1,167 @@
+.card {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(196, 162, 101, 0.2);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  gap: 1rem;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-light), var(--primary));
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cover {
+  flex-shrink: 0;
+}
+
+.cover img {
+  width: 80px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: var(--shadow-sm);
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-dark);
+}
+
+.author {
+  color: var(--primary);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.genre {
+  display: inline-block;
+  background: var(--secondary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.status {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.status-planned {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.status-reading {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.status-read {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.rating {
+  margin-top: 0.5rem;
+  color: #f4a460;
+  font-weight: bold;
+}
+
+.review {
+  margin-top: 0.75rem;
+  color: var(--text-light);
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.btn-edit, .btn-delete {
+  font-size: 0.875rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-edit {
+  background: transparent;
+  border: 1px solid var(--primary-light);
+  color: var(--primary);
+}
+
+.btn-edit:hover {
+  background: var(--primary-light);
+  color: white;
+}
+
+.btn-delete {
+  background: transparent;
+  border: 1px solid var(--error);
+  color: var(--error);
+}
+
+.btn-delete:hover {
+  background: var(--error);
+  color: white;
+}
+
+.in-my-library {
+  margin-top: 0.5rem;
+  padding: 0.25rem;
+  background: #d1fae5;
+  color: #059669;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: var(--spacing-md);
+  }
+  
+  .cover img {
+    width: 60px;
+    height: 85px;
+  }
+  
+  .title {
+    font-size: 1rem;
+  }
+  
+  .author {
+    font-size: 0.8rem;
+  }
+}

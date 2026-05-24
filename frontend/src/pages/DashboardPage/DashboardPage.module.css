@@ -1,0 +1,161 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-xl);
+}
+
+.hero p {
+  color: var(--primary);
+  font-size: 1.125rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Блок "Последнее прочитанное" */
+.lastReadSection {
+  margin-bottom: var(--spacing-xl);
+}
+
+.lastReadTitle {
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-dark);
+}
+
+.lastReadCard {
+  display: flex;
+  gap: var(--spacing-lg);
+  background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 100%);
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-lg);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.lastReadCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.lastReadCover {
+  flex-shrink: 0;
+}
+
+.lastReadCover img {
+  width: 100px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.lastReadCoverPlaceholder {
+  width: 100px;
+  height: 140px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.lastReadInfo {
+  flex: 1;
+}
+
+.lastReadInfo h4 {
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.lastReadInfo p {
+  color: var(--primary-light);
+  margin-bottom: var(--spacing-sm);
+}
+
+.lastReadGenre {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  color: white;
+  margin-bottom: var(--spacing-sm);
+}
+
+.lastReadRating {
+  color: #f4a460;
+  font-size: 0.875rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.lastReadReview {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: var(--spacing-sm);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.filters {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.filters select {
+  padding: 0.5rem;
+  border-radius: 20px;
+  border: 1px solid #e0d4c8;
+  background: white;
+}
+
+.loading {
+  text-align: center;
+  padding: var(--spacing-2xl);
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filters {
+    justify-content: space-between;
+  }
+  
+  .lastReadCard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .lastReadInfo {
+    text-align: center;
+  }
+  
+  .lastReadCover img,
+  .lastReadCoverPlaceholder {
+    width: 80px;
+    height: 112px;
+  }
+}

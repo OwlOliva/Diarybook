@@ -1,0 +1,415 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-xl);
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.hero p {
+  color: var(--primary);
+}
+
+/* Блок "Последнее прочитанное" */
+.lastReadSection {
+  margin-bottom: var(--spacing-xl);
+}
+
+.lastReadTitle {
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-dark);
+}
+
+.lastReadCard {
+  display: flex;
+  gap: var(--spacing-lg);
+  background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 100%);
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.lastReadCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.lastReadCover {
+  flex-shrink: 0;
+}
+
+.lastReadCover img {
+  width: 100px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.lastReadCoverPlaceholder {
+  width: 100px;
+  height: 140px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.lastReadInfo {
+  flex: 1;
+}
+
+.lastReadInfo h4 {
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.lastReadInfo p {
+  color: var(--primary-light);
+  margin-bottom: var(--spacing-sm);
+}
+
+.lastReadGenre {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  color: white;
+  margin-bottom: var(--spacing-sm);
+}
+
+.lastReadRating {
+  color: #f4a460;
+  font-size: 0.875rem;
+}
+
+.lastReadRating span {
+  margin-left: 0.25rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Фильтры */
+.filtersCard {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e8e0d5;
+  border-radius: var(--border-radius-md);
+  font-size: 1rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(196, 162, 101, 0.15);
+}
+
+.filterBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.filterButtons {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.sortSelect {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #e0d4c8;
+  background: white;
+  cursor: pointer;
+}
+
+.clearBtn {
+  background: none;
+  border: none;
+  color: var(--error);
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+/* Панель жанров */
+.genrePanel {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: #f9f9f9;
+  border-radius: var(--border-radius-md);
+}
+
+.genrePanelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.genreQuickActions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.genreGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.genreBtn {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.genreBtnSelected {
+  border: 2px solid var(--primary-light);
+  background: rgba(196, 162, 101, 0.1);
+  color: var(--primary);
+}
+
+.genreCount {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Популярные жанры */
+.popularGenres {
+  margin-top: var(--spacing-md);
+}
+
+.popularGenresLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-sm);
+}
+
+.genreList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.genreChip {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+}
+
+.genreChipActive {
+  border: 2px solid var(--primary-light);
+  background: rgba(196, 162, 101, 0.1);
+  color: var(--primary);
+}
+
+/* Активные фильтры */
+.activeFilters {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.activeFilter {
+  background: rgba(196, 162, 101, 0.15);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.activeFilter button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--error);
+}
+
+.resultCount {
+  margin-bottom: var(--spacing-md);
+  color: var(--text-muted);
+  text-align: right;
+}
+
+/* Сетка книг */
+.booksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.bookCard {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  padding: var(--spacing-md);
+  gap: var(--spacing-md);
+}
+
+.bookCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.bookCoverWrapper {
+  flex-shrink: 0;
+}
+
+.bookCover {
+  width: 80px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.bookInfo {
+  flex: 1;
+  overflow: hidden;
+}
+
+.bookTitle {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-dark);
+}
+
+.bookAuthor {
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-style: italic;
+  margin-bottom: 0.25rem;
+}
+
+.bookGenre {
+  display: inline-block;
+  background: var(--secondary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+.bookRating {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #f4a460;
+}
+
+.ratingValue {
+  margin-left: 0.25rem;
+  color: var(--text-muted);
+}
+
+.bookReads {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.inLibrary {
+  position: absolute;
+  bottom: var(--spacing-sm);
+  right: var(--spacing-sm);
+  background: #d1fae5;
+  color: #059669;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+}
+
+.emptyState {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+}
+
+.loading {
+  text-align: center;
+  padding: var(--spacing-2xl);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .booksGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filterBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filterButtons {
+    justify-content: center;
+  }
+  
+  .lastReadCard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .lastReadInfo {
+    text-align: center;
+  }
+  
+  .bookCard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .bookCover {
+    width: 100px;
+    height: 140px;
+  }
+}

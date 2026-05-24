@@ -1,0 +1,20 @@
+.container { max-width: 1400px; margin: 0 auto; }
+.tabs { display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-xl); border-bottom: 1px solid #e0d4c8; padding-bottom: var(--spacing-sm); flex-wrap: wrap; }
+.tab { padding: 0.5rem 1rem; background: transparent; border: none; border-radius: var(--border-radius-sm); cursor: pointer; transition: all 0.2s; }
+.tabActive { background: var(--primary-light); color: white; }
+.statsGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--spacing-md); }
+.searchInput { padding: 0.5rem; width: 300px; border: 1px solid #ddd; border-radius: var(--border-radius-sm); margin-bottom: var(--spacing-md); }
+.tableContainer { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #eee; }
+.table th { background: var(--secondary); }
+.table button { background: none; border: none; cursor: pointer; margin: 0 0.25rem; }
+.addGenre { display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-lg); }
+.genreList { display: flex; flex-direction: column; gap: var(--spacing-sm); }
+.genreItem { display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-sm); background: #f9f9f9; border-radius: var(--border-radius-sm); }
+.loading { text-align: center; padding: var(--spacing-2xl); }
+
+@media (max-width: 768px) {
+  .tabs { justify-content: center; }
+  .searchInput { width: 100%; }
+}

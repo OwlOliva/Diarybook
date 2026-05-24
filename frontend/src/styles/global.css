@@ -1,0 +1,372 @@
+@import './variables.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--background);
+  color: var(--text-dark);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  h2 {
+    font-size: 1.25rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 40px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--primary-light);
+  color: var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: var(--primary-light);
+  color: white;
+}
+
+.stat-card {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 768px) {
+  .stat-number {
+    font-size: 2rem;
+  }
+}
+/* Базовые стили для всех инпутов */
+input, 
+textarea, 
+select {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  transition: all var(--transition-normal);
+  background: var(--white);
+  border: 2px solid #e8e0d5;
+  border-radius: var(--border-radius-md);
+  padding: 0.875rem 1rem;
+  width: 100%;
+  color: var(--text-dark);
+}
+
+/* Фокус для всех инпутов */
+input:focus, 
+textarea:focus, 
+select:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(196, 162, 101, 0.15);
+}
+
+/* Плейсхолдеры */
+input::placeholder,
+textarea::placeholder {
+  color: #bbb;
+  font-weight: 400;
+}
+
+/* Hover эффект */
+input:hover:not(:disabled),
+textarea:hover:not(:disabled),
+select:hover:not(:disabled) {
+  border-color: var(--primary-light);
+}
+
+/* Disabled состояние */
+input:disabled,
+textarea:disabled,
+select:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Error состояние */
+input.error,
+textarea.error,
+select.error {
+  border-color: var(--error);
+  background: rgba(231, 76, 60, 0.05);
+}
+
+input.error:focus,
+textarea.error:focus,
+select.error:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
+}
+
+/* Success состояние */
+input.success,
+textarea.success,
+select.success {
+  border-color: var(--success);
+}
+
+/* Стили для числовых полей */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 0.5;
+}
+
+/* Стили для файловых инпутов */
+input[type="file"] {
+  padding: 0.5rem;
+  background: #f9f9f9;
+  border: 2px dashed #e0d4c8;
+  cursor: pointer;
+}
+
+input[type="file"]:hover {
+  border-color: var(--primary-light);
+  background: var(--secondary);
+}
+
+/* Стили для чекбоксов и радио */
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  margin-right: 0.5rem;
+  accent-color: var(--primary);
+}
+
+/* Стили для поисковых полей */
+input[type="search"]::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+/* Группа инпутов */
+.input-group {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-end;
+}
+
+.input-group > * {
+  flex: 1;
+}
+
+/* Метки для инпутов */
+.input-label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.875rem;
+}
+
+.input-label.required::after {
+  content: '*';
+  color: var(--error);
+  margin-left: 0.25rem;
+}
+
+/* Помощь под инпутом */
+.input-hint {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.input-hint.error {
+  color: var(--error);
+}
+
+.input-hint.success {
+  color: var(--success);
+}
+
+/* Анимированные инпуты */
+.input-animated {
+  position: relative;
+}
+
+.input-animated input {
+  padding-top: 1.25rem;
+  padding-bottom: 0.5rem;
+}
+
+.input-animated label {
+  position: absolute;
+  left: 1rem;
+  top: 0.875rem;
+  color: #999;
+  pointer-events: none;
+  transition: all var(--transition-normal);
+  font-size: 0.875rem;
+}
+
+.input-animated input:focus + label,
+.input-animated input:not(:placeholder-shown) + label {
+  top: 0.25rem;
+  font-size: 0.7rem;
+  color: var(--primary-light);
+}
+
+/* Стили для select */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238b5a2b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+/* Стили для textarea */
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Стили для формы */
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Контейнер для инпута с иконкой */
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon input {
+  padding-left: 2.5rem;
+}
+
+.input-with-icon .icon {
+  position: absolute;
+  left: 0.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  input, 
+  textarea, 
+  select {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .input-group {
+    flex-direction: column;
+  }
+}

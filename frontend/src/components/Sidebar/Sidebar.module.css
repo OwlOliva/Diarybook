@@ -1,0 +1,236 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+  color: #e0e0e0;
+  transition: width 0.3s ease;
+  z-index: 999;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.sidebarExpanded {
+  width: 280px;
+}
+
+.sidebarCollapsed {
+  width: 80px;
+}
+
+.logo {
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+}
+
+.logoExpanded {
+  padding: 1.5rem;
+}
+
+.logoCollapsed {
+  padding: 1rem 0;
+}
+
+.logoIcon {
+  margin: 0 auto;
+  display: block;
+  color: var(--primary-light);
+}
+
+.logoTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--primary-light);
+}
+
+.logoSubtitle {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.8;
+  color: #e0e0e0;
+}
+
+.toggleBtn {
+  position: absolute;
+  right: -12px;
+  top: 80px;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background: var(--primary-light);
+  border: none;
+  color: #1a1a2e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.nav {
+  flex: 1;
+}
+
+.navExpanded {
+  padding: 0 1rem;
+}
+
+.navCollapsed {
+  padding: 0.5rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.25rem 0;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.navLinkExpanded {
+  padding: 0.75rem 1rem;
+}
+
+.navLinkCollapsed {
+  padding: 0.75rem;
+  justify-content: center;
+}
+
+.navLinkActive {
+  color: var(--primary-light);
+  background: rgba(196, 162, 101, 0.15);
+}
+
+.navLinkInactive {
+  color: #b0b0b0;
+  background: transparent;
+}
+
+.navLink:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+.navLabel {
+  font-size: 0.95rem;
+}
+
+/* Кнопки для неавторизованных пользователей */
+.authButtons {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.loginBtn, .registerBtn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  justify-content: flex-start;
+}
+
+.loginBtn {
+  background: rgba(52, 152, 219, 0.2);
+  color: #3498db;
+  border: none;
+}
+
+.loginBtn:hover {
+  background: rgba(52, 152, 219, 0.3);
+}
+
+.registerBtn {
+  background: rgba(196, 162, 101, 0.2);
+  color: var(--primary-light);
+  border: none;
+}
+
+.registerBtn:hover {
+  background: rgba(196, 162, 101, 0.3);
+}
+
+/* Кнопка выхода */
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  border-radius: 12px;
+  border: none;
+  background: rgba(231, 76, 60, 0.15);
+  color: var(--error);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logoutBtnExpanded {
+  padding: 0.75rem 1rem;
+}
+
+.logoutBtnCollapsed {
+  padding: 0.75rem;
+  justify-content: center;
+}
+
+.logoutBtn:hover {
+  background: rgba(231, 76, 60, 0.25);
+}
+
+.footer {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+}
+
+.menuBtn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  background: var(--primary-dark);
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .sidebarExpanded {
+    width: 280px;
+  }
+  .sidebarCollapsed {
+    width: 0;
+    transform: translateX(-100%);
+  }
+  .menuBtn {
+    display: block;
+  }
+}

@@ -1,0 +1,17 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--background-gradient);
+}
+
+.footer {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+}
+
+.footer a {
+  color: var(--primary);
+  text-decoration: none;
+}

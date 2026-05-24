@@ -1,0 +1,89 @@
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--white);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.card h3 {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-dark);
+}
+
+.card input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  margin-bottom: var(--spacing-md);
+  border: 2px solid #e8e0d5;
+  border-radius: var(--border-radius-md);
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.card input:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(196, 162, 101, 0.15);
+}
+
+.card input:hover {
+  border-color: var(--primary-light);
+}
+
+.success {
+  background: var(--success);
+  color: white;
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+.error {
+  background: var(--error);
+  color: white;
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+.dangerZone {
+  border: 2px solid var(--error);
+  background: rgba(231, 76, 60, 0.05);
+}
+
+.deleteBtn {
+  background: var(--error);
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+.deleteBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: var(--spacing-lg);
+  }
+  
+  .card input {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+}

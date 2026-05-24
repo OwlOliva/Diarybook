@@ -1,0 +1,410 @@
+.tracker {
+  background: linear-gradient(135deg, #f9f9f9 0%, #fff 100%);
+  border-radius: 24px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  border: 1px solid #e0d4c8;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 1.125rem;
+  margin-bottom: 1.25rem;
+  color: #8b5a2b;
+  text-align: center;
+}
+
+.chartContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.circularChart {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.circleBg {
+  stroke: #e8e0d5;
+}
+
+.circleProgress {
+  transition: stroke-dashoffset 0.5s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.chartCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.percentage {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #2c1810;
+  display: block;
+  line-height: 1;
+}
+
+.statusIcon {
+  font-size: 1.5rem;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.stats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.statItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #e8e0d5;
+}
+
+.statLabel {
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.statValue {
+  font-weight: bold;
+  color: #2c1810;
+  font-size: 1.125rem;
+}
+
+.statusBar {
+  background: linear-gradient(135deg, #f0e8e0 0%, #e8dcc8 100%);
+  border-radius: 40px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.statusIcon {
+  font-size: 1.5rem;
+}
+
+.statusText {
+  flex: 1;
+  font-weight: 600;
+  color: #5a3a20;
+  font-size: 0.9rem;
+}
+
+.progressPercent {
+  font-weight: bold;
+  color: #8b5a2b;
+  font-size: 1.125rem;
+}
+
+.linearProgressContainer {
+  margin-bottom: 1.5rem;
+}
+
+.linearProgressLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: #999;
+  margin-bottom: 0.25rem;
+  padding: 0 0.25rem;
+}
+
+.linearProgress {
+  position: relative;
+  background: #e8e0d5;
+  border-radius: 10px;
+  height: 8px;
+  overflow: visible;
+}
+
+.linearProgressFill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+  position: relative;
+}
+
+.progressMarkers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.markerDot {
+  width: 10px;
+  height: 10px;
+  background: #e8e0d5;
+  border: 2px solid #c4a265;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.markerActive .markerDot {
+  background: #c4a265;
+  border-color: #8b5a2b;
+  transform: scale(1.2);
+}
+
+.markerLabel {
+  font-size: 0.6rem;
+  color: #999;
+  white-space: nowrap;
+}
+
+.markerActive .markerLabel {
+  color: #8b5a2b;
+  font-weight: bold;
+}
+
+.pageInputContainer {
+  margin-bottom: 1rem;
+}
+
+.pageInputLabel {
+  display: block;
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.controlBtn {
+  background: #e8e0d5;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+  font-size: 0.875rem;
+}
+
+.controlBtn:hover:not(:disabled) {
+  background: #c4a265;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.controlBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pageInput {
+  width: 100px;
+  text-align: center;
+  padding: 0.6rem;
+  border: 2px solid #e8e0d5;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.pageInput:focus {
+  outline: none;
+  border-color: #c4a265;
+}
+
+.updateBtn {
+  background: linear-gradient(135deg, #8b5a2b, #c4a265);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: bold;
+}
+
+.updateBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(139, 90, 43, 0.3);
+}
+
+.updateBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quickPresets {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #e8e0d5;
+}
+
+.presetLabel {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.presetBtn {
+  background: transparent;
+  border: 1px solid #c4a265;
+  color: #8b5a2b;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  transition: all 0.2s;
+}
+
+.presetBtn:hover {
+  background: #c4a265;
+  color: white;
+}
+
+.completionMessage {
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  color: #059669;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  animation: pulse 0.5s ease;
+}
+
+.completed {
+  text-align: center;
+  padding: 0.75rem;
+  background: #d1fae5;
+  color: #059669;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+.planned {
+  text-align: center;
+  padding: 0.75rem;
+  background: #fef3c7;
+  color: #d97706;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .tracker {
+    padding: 1rem;
+  }
+  
+  .chartContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .stats {
+    width: 100%;
+  }
+  
+  .controls {
+    justify-content: center;
+  }
+  
+  .circularChart {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .percentage {
+    font-size: 1.25rem;
+  }
+  
+  .statusIcon {
+    font-size: 1rem;
+  }
+  
+  .markerLabel {
+    display: none;
+  }
+  
+  .quickPresets {
+    justify-content: center;
+  }
+}
+.presetBtnFinish {
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  border: none;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  transition: all 0.2s;
+}
+
+.presetBtnFinish:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+}
+
+.noPages {
+  text-align: center;
+  padding: 0.75rem;
+  background: #fef3c7;
+  color: #d97706;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}

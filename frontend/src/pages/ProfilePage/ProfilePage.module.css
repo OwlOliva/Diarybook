@@ -1,0 +1,2 @@
+.container { max-width: 1200px; margin: 0 auto; }
+.loading { text-align: center; padding: var(--spacing-2xl); }

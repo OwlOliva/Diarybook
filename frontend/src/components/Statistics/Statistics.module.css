@@ -1,0 +1,34 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.chartContainer {
+  margin-top: var(--spacing-lg);
+  height: 300px;
+}
+
+.doughnutContainer {
+  max-width: 400px;
+  margin: 0 auto;
+  height: 300px;
+}
+
+@media (max-width: 768px) {
+  .statsGrid {
+    gap: var(--spacing-md);
+  }
+  .chartContainer {
+    height: 250px;
+  }
+  .doughnutContainer {
+    height: 250px;
+  }
+}

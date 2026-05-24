@@ -1,0 +1,309 @@
+.form {
+  background: var(--white);
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  margin-bottom: var(--spacing-xl);
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  text-align: center;
+  border-bottom: 2px solid #e8e0d5;
+  padding-bottom: var(--spacing-md);
+}
+
+.loading {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  color: var(--text-muted);
+}
+
+/* Секция обложки */
+.coverSection {
+  display: flex;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background: #f9f9f9;
+  border-radius: var(--border-radius-lg);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.coverPreviewWrapper {
+  flex-shrink: 0;
+}
+
+.coverPreview {
+  position: relative;
+  display: inline-block;
+}
+
+.coverPreview img {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.removeCover {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 28px;
+  height: 28px;
+  background: var(--error);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+}
+
+.removeCover:hover {
+  transform: scale(1.1);
+}
+
+.coverPlaceholder {
+  width: 150px;
+  height: 200px;
+  background: linear-gradient(135deg, #e8e0d5, #d4c8b8);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.coverPlaceholder span:first-child {
+  font-size: 2.5rem;
+}
+
+.coverUpload {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.fileInput {
+  display: none;
+}
+
+.uploadLabel {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: var(--primary-light);
+  color: white;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  text-align: center;
+  transition: all var(--transition-fast);
+  font-weight: 500;
+}
+
+.uploadLabel:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
+}
+
+.hint {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+/* Форма */
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.formGroup {
+  margin-bottom: var(--spacing-md);
+}
+
+.label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.875rem;
+}
+
+.labelHint {
+  font-weight: normal;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.input, .select, .textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e8e0d5;
+  border-radius: var(--border-radius-md);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all var(--transition-fast);
+  background: var(--white);
+}
+
+.input:focus, .select:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(196, 162, 101, 0.15);
+}
+
+.input:hover, .select:hover, .textarea:hover {
+  border-color: var(--primary-light);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.inputHint {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Рейтинг с ползунком */
+.ratingInput {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.rangeInput {
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  background: #e8e0d5;
+  border-radius: 3px;
+  outline: none;
+}
+
+.rangeInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.rangeInput::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.ratingValue {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.ratingNumber {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--primary);
+  min-width: 40px;
+}
+
+.ratingStars {
+  color: #f4a460;
+  font-size: 0.875rem;
+}
+
+/* Кнопки действий */
+.actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid #e8e0d5;
+}
+
+.submitBtn, .cancelBtn {
+  padding: 0.875rem 1.5rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.submitBtn {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  border: none;
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cancelBtn {
+  background: transparent;
+  border: 2px solid var(--primary-light);
+  color: var(--primary);
+}
+
+.cancelBtn:hover {
+  background: var(--primary-light);
+  color: white;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .form {
+    padding: var(--spacing-lg);
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .coverSection {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .coverUpload {
+    align-items: center;
+  }
+  
+  .actions {
+    flex-direction: column;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+  }
+}
