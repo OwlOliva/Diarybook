@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import styles from './AuthForm.module.css';
 
 interface Props {
   type: 'login' | 'register';
-  onSubmit: (data: { email: string; password: string; name?: string }) => Promise<void>;
+  onSubmit: (data: { email: string; password: string; name: string }) => Promise<void>;
 }
 
 export default function AuthForm({ type, onSubmit }: Props) {
@@ -17,21 +18,15 @@ export default function AuthForm({ type, onSubmit }: Props) {
     setError('');
     setLoading(true);
     
-    console.log('Form submitted:', { email, password, name: type === 'register' ? name : undefined });
-    
     try {
       if (type === 'register') {
-        // Для регистрации name обязателен
-        if (!name) {
-          throw new Error('Имя обязательно');
-        }
+        if (!name) throw new Error('Имя обязательно');
         await onSubmit({ email, password, name });
       } else {
-        // Для логина name не нужен
-        await onSubmit({ email, password });
+        // Для логина передаем пустую строку как name
+        await onSubmit({ email, password, name: '' });
       }
     } catch (err: any) {
-      console.error('Auth error:', err);
       setError(err.message || 'Ошибка при соединении с сервером');
     } finally {
       setLoading(false);
@@ -39,9 +34,9 @@ export default function AuthForm({ type, onSubmit }: Props) {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: 400, margin: '0 auto', padding: '2rem' }}>
-      <h2>{type === 'login' ? 'Вход' : 'Регистрация'}</h2>
-      {error && <div style={{ color: 'red', marginBottom: '1rem' }}>{error}</div>}
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <h2 className={styles.title}>{type === 'login' ? 'Вход' : 'Регистрация'}</h2>
+      {error && <div className={styles.error}>{error}</div>}
       {type === 'register' && (
         <input
           type="text"
@@ -49,7 +44,7 @@ export default function AuthForm({ type, onSubmit }: Props) {
           value={name}
           onChange={e => setName(e.target.value)}
           required
-          style={{ width: '100%', padding: '0.5rem', marginBottom: '1rem', border: '1px solid #ddd', borderRadius: '4px' }}
+          className={styles.input}
         />
       )}
       <input
@@ -58,7 +53,7 @@ export default function AuthForm({ type, onSubmit }: Props) {
         value={email}
         onChange={e => setEmail(e.target.value)}
         required
-        style={{ width: '100%', padding: '0.5rem', marginBottom: '1rem', border: '1px solid #ddd', borderRadius: '4px' }}
+        className={styles.input}
       />
       <input
         type="password"
@@ -66,13 +61,9 @@ export default function AuthForm({ type, onSubmit }: Props) {
         value={password}
         onChange={e => setPassword(e.target.value)}
         required
-        style={{ width: '100%', padding: '0.5rem', marginBottom: '1rem', border: '1px solid #ddd', borderRadius: '4px' }}
+        className={styles.input}
       />
-      <button 
-        type="submit" 
-        disabled={loading} 
-        style={{ width: '100%', padding: '0.5rem', background: '#3498db', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-      >
+      <button type="submit" disabled={loading} className={styles.submitBtn}>
         {loading ? 'Загрузка...' : type === 'login' ? 'Войти' : 'Зарегистрироваться'}
       </button>
     </form>

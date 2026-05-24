@@ -11,11 +11,16 @@ export default function RegisterPage({ onRegister }: Props) {
   const navigate = useNavigate();
 
   const handleSubmit = async ({ email, password, name }: { email: string; password: string; name: string }) => {
-    const response = await register(email, password, name);
-    const { token } = response;
-    setAuthToken(token);
-    onRegister(token);
-    navigate('/');
+    try {
+      const response = await register(email, password, name);
+      const { token } = response;
+      setAuthToken(token);
+      onRegister(token);
+      navigate('/');
+    } catch (error) {
+      console.error('Registration error:', error);
+      throw error;
+    }
   };
 
   return (

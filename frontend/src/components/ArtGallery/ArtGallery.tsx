@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { getBookArts, addBookArt, deleteBookArt, BookArt } from '../../services/api';
-import { FiUpload, FiTrash2, FiImage, FiX, FiDownload, FiZoomIn, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FiUpload, FiTrash2, FiImage, FiX, FiZoomIn, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import styles from './ArtGallery.module.css';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   token: string;
 }
 
-export default function ArtGallery({ bookId, token }: Props) {
+export default function ArtGallery({ bookId }: Props) {
   const [arts, setArts] = useState<BookArt[]>([]);
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);

@@ -154,6 +154,11 @@ export default function AdminPage({ token }: Props) {
       )}
 
       <AdminEditModal isOpen={editModalOpen} onClose={() => setEditModalOpen(false)} onSave={activeTab === 'users' ? handleSaveUser : activeTab === 'books' ? handleSaveBook : activeTab === 'comments' ? handleSaveComment : handleSaveGenre} title={editTitle} fields={editFields} />
+    {total > 20 && (
+  <div className={styles.pagination}>
+    Страница {page} из {Math.ceil(total / 20)}
+  </div>
+)}
     </div>
   );
 }

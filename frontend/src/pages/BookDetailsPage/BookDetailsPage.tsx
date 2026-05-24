@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getBookDetails, BookDetails, BookComment } from '../../services/api';
+import { getBookDetails, BookDetails } from '../../services/api';
 import styles from './BookDetailsPage.module.css';
 
 export default function BookDetailsPage() {

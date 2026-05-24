@@ -10,12 +10,17 @@ interface Props {
 export default function LoginPage({ onLogin }: Props) {
   const navigate = useNavigate();
 
-  const handleSubmit = async ({ email, password }: { email: string; password: string }) => {
-    const response = await login(email, password);
-    const { token } = response;
-    setAuthToken(token);
-    onLogin(token);
-    navigate('/');
+  const handleSubmit = async ({ email, password }: { email: string; password: string; name: string }) => {
+    try {
+      const response = await login(email, password);
+      const { token } = response;
+      setAuthToken(token);
+      onLogin(token);
+      navigate('/');
+    } catch (error) {
+      console.error('Login error:', error);
+      throw error;
+    }
   };
 
   return (

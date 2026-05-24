@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getLibraryBooks, LibraryBook, getGenres, Genre } from '../../services/api';
 import styles from './LibraryPage.module.css';
 

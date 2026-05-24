@@ -15,6 +15,7 @@ dotenv.config();
 
 const app = express();
 
+// CORS настройки
 app.use(cors({
   origin: true,
   credentials: true,
@@ -25,7 +26,7 @@ app.use(cors({
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
-// Логирование запросов
+// Логирование
 app.use((req, _res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
   next();
@@ -35,7 +36,7 @@ app.use((req, _res, next) => {
 const uploadDir = process.env.UPLOAD_DIR || 'uploads';
 app.use(`/${uploadDir}`, express.static(path.join(process.cwd(), uploadDir)));
 
-// Routes
+// API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/books', bookRoutes);
 app.use('/api/profile', profileRoutes);
@@ -53,11 +54,20 @@ app.get('/api/health', (_req, res) => {
   });
 });
 
+// ✅ Исправленный обработчик для React (если нужно)
+const clientPath = path.join(process.cwd(), '../client/dist');
+app.use(express.static(clientPath));
+
+// app.get('*', (_req, res) => {
+//   res.sendFile(path.join(clientPath, 'index.html'));
+// });
+
 // 404 handler
 app.use((_req, res) => {
   res.status(404).json({ error: 'Route not found' });
 });
 
+// Error handler
 app.use(errorHandler);
 
 export default app;
