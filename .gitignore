@@ -13,11 +13,7 @@ pnpm-debug.log*
 .env.production.local
 .env*.local
 
-# Сборки и дистрибутивы
-build/
-.out/
-.next/
-*.tsbuildinfo
+
 
 # Логи
 logs/
@@ -115,7 +111,6 @@ secrets/
 /server/dist/
 /server/uploads/
 /client/dist/
-/frontend/dist/
 /backend/dist/
 
 # Переменные окружения (дублирование)
