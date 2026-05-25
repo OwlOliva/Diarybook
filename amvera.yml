@@ -6,12 +6,7 @@ meta:
     version: 20
 build:
   skip: false
-  additionalCommands:  cd backend
-    - npm install
-    - cd ../frontend
-    - npm install
-    - npm run build
-    - cd ../backend
+  additionalCommands: cd backend && npm install
   artifacts:
     '*': /
 run:
