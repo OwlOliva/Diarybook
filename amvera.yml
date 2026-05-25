@@ -5,13 +5,15 @@ meta:
     name: npm
     version: 20
 build:
-  commands:
-    - cd backend
+  skip: false
+  additionalCommands:  cd backend
     - npm install
     - cd ../frontend
     - npm install
     - npm run build
     - cd ../backend
+  artifacts:
+    '*': /
 run:
   persistenceMount: /data
   scriptName: stsrt
