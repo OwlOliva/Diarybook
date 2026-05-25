@@ -54,10 +54,10 @@ app.get('/api/health', (_req, res) => {
   });
 });
 
-const clientPath = path.join(process.cwd(), '../frontend/dist');
+const clientPath = path.join(process.cwd(), '../frontend');
 app.use(express.static(clientPath));
 
-app.use((_req, res) => {
+app.get('*',(_req, res) => {
   res.sendFile(path.join(__dirname, clientPath, 'index.html'));
 });
 
