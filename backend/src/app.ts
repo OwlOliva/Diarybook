@@ -79,12 +79,10 @@ if (clientPath && fs.existsSync(path.join(clientPath, 'index.html'))) {
   app.use(express.static(clientPath));
   
   // Все остальные GET-запросы (не API) отдаём index.html
-  app.get('*', (req, res) => {
-    // Проверяем, что запрос не к API
-    if (!req.path.startsWith('/api')) {
-      res.sendFile(path.join(clientPath, 'index.html'));
-    }
-  });
+app.use((_req, res) => {
+  // Отдаем index.html для всех запросов, не обработанных выше
+  res.sendFile(path.join(clientPath, 'index.html'));
+});
   console.log(`📱 Frontend will be served from: ${clientPath}`);
 } else {
   console.log('⚠️ Frontend not found. Only API will work.');
@@ -92,7 +90,7 @@ if (clientPath && fs.existsSync(path.join(clientPath, 'index.html'))) {
 }
 
 // ============= 404 Handler (только для API) =============
-app.use('/api/*', (_req, res) => {
+app.use('/api/', (_req, res) => {
   res.status(404).json({ error: 'API route not found' });
 });
 
