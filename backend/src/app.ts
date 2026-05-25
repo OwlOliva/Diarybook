@@ -45,7 +45,7 @@ app.use('/api/genres', genreRoutes);
 app.use('/api/arts', artRoutes);
 app.use('/api/admin', adminRoutes);
 
-// Health check
+
 app.get('/api/health', (_req, res) => {
   res.json({ 
     status: 'ok', 
@@ -54,20 +54,18 @@ app.get('/api/health', (_req, res) => {
   });
 });
 
-// ✅ Исправленный обработчик для React (если нужно)
-const clientPath = path.join(process.cwd(), '../client/dist');
+const clientPath = path.join(process.cwd(), '../frontend/dist');
 app.use(express.static(clientPath));
 
-// app.get('*', (_req, res) => {
-//   res.sendFile(path.join(clientPath, 'index.html'));
-// });
+app.use((_req, res) => {
+  res.sendFile(path.join(__dirname, clientPath, 'index.html'));
+});
 
-// 404 handler
+
 app.use((_req, res) => {
   res.status(404).json({ error: 'Route not found' });
 });
 
-// Error handler
 app.use(errorHandler);
 
 export default app;
