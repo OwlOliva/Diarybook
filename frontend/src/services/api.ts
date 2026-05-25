@@ -1,6 +1,5 @@
 // Используем полный URL для разработки
-const API_URL = 'http://localhost:5000/api';
-
+const API_URL = 'https://reader-backend-owloliva.amvera.io/api';
 let authToken: string | null = null;
 
 export const setAuthToken = (token: string | null) => {
