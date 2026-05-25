@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.ts",
     "build": "echo 'Building...'",
-     "start": "node index.js",
+     "start": "ts-node src/index.ts",
     "postinstall": "cd ../frontend && npm install && npm run build"
   },
   "keywords": [],
